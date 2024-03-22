@@ -142,12 +142,12 @@ alias fly="mcfly search"
 alias d='dirs -v'
 alias pd='pushd'
 
-# for ubuntu-based distros ...
+# These are for ubuntu-based distros ...
 alias ud="sudo nala upgrade && sudo flatpak -y update"
 alias pi="sudo nala install"
 alias nar="sudo nala autoremove"
 
-# for arch-based distros ...
+# These are for arch-based distros ...
 # alias ud="sudo pacman -Syu"
 # alias pi="sudo pacman -S"
 
