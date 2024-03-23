@@ -5,3 +5,7 @@
 * zsh
 * vimrc
 * tmux
+* ranger
+* htop
+* btop
+* 
