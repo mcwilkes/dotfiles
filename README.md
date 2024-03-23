@@ -3,5 +3,5 @@
 ## My Linux distro dotfiles for
 
 * zsh
-* ranger
+* vimrc
 * tmux
