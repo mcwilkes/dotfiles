@@ -131,6 +131,7 @@ alias ce="code"
 alias se="subl"
 alias e="vim"
 
+alias ev='nvim $(find . -type f | fzf --multi --preview "bat --color=always {}" --preview-window "~3")'
 alias ef='e $(find . -type f | fzf -m)'
 alias b='batcat'
 alias erc="e ~/.zshrc"
