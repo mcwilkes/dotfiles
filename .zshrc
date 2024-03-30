@@ -130,8 +130,7 @@ alias rgr="ranger"
 alias ce="code"
 alias se="subl"
 alias e="vim"
-
-alias ev='nvim $(find . -type f | fzf --multi --preview "bat --color=always {}" --preview-window "~3")'
+alias ev='nvim $(find . -type f | fzf --multi --preview "bat --color=always {}")'
 alias ef='e $(find . -type f | fzf -m)'
 alias b='batcat'
 alias erc="e ~/.zshrc"
@@ -141,9 +140,10 @@ alias encf="e ~/.config/nvim ."
 alias cda="conda deactivate"
 alias gd="cd ~/dev/work && lsc"
 alias tl="tldr"
-alias fly="mcfly search"
+alias tlf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 alias d='dirs -v'
 alias pd='pushd'
+alias fly="mcfly search"
 
 # These are for ubuntu-based distros ...
 alias ud="sudo nala upgrade && sudo flatpak -y update"
