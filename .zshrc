@@ -181,7 +181,14 @@ lfcd () {
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
 fe() {
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  # Original only takes filespec(s)
+  # IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+
+  # Mod to pass both dir to search in and filespec(s)
+  IFS=$'\n' files=($(find "$1" -type f | fzf-tmux --query="$2" \
+      --multi --select-1 --exit-0 \
+      --preview "bat --color=always {}" \
+      --preview-window=right,60%))
   [[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
 }
 
