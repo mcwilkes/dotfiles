@@ -8,4 +8,8 @@
 * ranger
 * htop
 * btop
-* 
+
+## Sample Copy Block
+    sudo apt-get install <something>
+    mkdir someplace
+
