@@ -15,9 +15,6 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
-
-bindkey -s '^o' 'lfcd\n'
-
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
@@ -229,6 +226,7 @@ fe() {
       --preview-window=right,60%))
   [[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
 }
+bindkey -s '^o' 'lfcd\n'
 
 # fcd - cd to selected directory
 fcd() {
