@@ -9,6 +9,12 @@ call plug#begin()
 	Plug 'junegunn/fzf.vim'
     Plug 'ap/vim-css-color' " CSS Color Preview
 	Plug 'ryanoasis/vim-devicons' " Developer Icons
+    Plug 'mattn/emmet-vim'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'tpope/vim-commentary'
+    Plug 'ervandew/supertab'
+    Plug 'garbas/vim-snipmate'
+    Plug 'MarcWeber/vim-addon-mw-utils'
 call plug#end()
 
 " NERDTree
@@ -29,12 +35,15 @@ filetype on
 filetype plugin on
 filetype indent on
 syntax on
+colo habamax
 set rnu 
 set shiftwidth=4
 set tabstop=4
 set expandtab
 set nobackup
 set scrolloff=10
+set updatetime=100
+set scl=auto
 set nowrap
 set incsearch
 set ignorecase
