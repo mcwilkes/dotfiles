@@ -1,3 +1,4 @@
+" PLUGINS ---------------------------------------------------------------- {{{
 call plug#begin()
     Plug 'sheerun/vim-polyglot' " Better Syntax Support
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -13,22 +14,30 @@ call plug#begin()
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-commentary'
     Plug 'ervandew/supertab'
+    Plug 'liuchengxu/vim-which-key'
+    Plug 'mhinz/vim-startify'
     Plug 'garbas/vim-snipmate'
     Plug 'MarcWeber/vim-addon-mw-utils'
 call plug#end()
+" }}}
 
-" NERDTree
+" NERDTree settings ------------------------------------------------------ {{{
 let NERDTreeShowHidden=1
 nnoremap <C-a> :NERDTreeToggle<CR>
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+" }}}
 
-" vim-airline
+" vim-airline ------------------------------------------------------------ {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+" }}}
 
-" My settings ...
+" load which-key settings, mappings ...
+source ~/.vim/custom/which-key.vim
+
+" My Settings ------------------------------------------------------------ {{{
 set nocompatible
 set timeoutlen=300
 filetype on
@@ -48,8 +57,24 @@ set nowrap
 set incsearch
 set ignorecase
 set smartcase
+set cursorline
+set cursorcolumn
 set showcmd
 set showmode
 set showmatch
 set hlsearch
 set history=1000
+" }}}
+
+" VIMSCRIPT -------------------------------------------------------------- {{{
+
+" This will enable code folding.
+" Use the marker method of folding.
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" More Vimscripts code goes here.
+
+" }}}
