@@ -25,8 +25,8 @@ call plug#end()
 let NERDTreeShowHidden=1
 nnoremap <C-a> :NERDTreeToggle<CR>
 " Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 " }}}
 
 " vim-airline ------------------------------------------------------------ {{{
@@ -74,7 +74,5 @@ augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
-
-" More Vimscripts code goes here.
 
 " }}}
