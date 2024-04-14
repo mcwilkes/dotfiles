@@ -65,17 +65,13 @@ let g:which_key_map.o = {
 let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
       \ 'g' : [':!lazygit' , 'lazygit']         ,
-      \ '1' : ['b1'        , 'buffer 1']        ,
-      \ '2' : ['b2'        , 'buffer 2']        ,
-      \ '3' : ['b3'        , 'buffer 3']        ,
-      \ '4' : ['b4'        , 'buffer 4']        ,
-      \ 'd' : ['bd'        , 'delete-buffer']   ,
-      \ 'f' : ['bfirst'    , 'first-buffer']    ,
-      \ 'h' : ['Startify'  , 'home-buffer']     ,
-      \ 'l' : ['blast'     , 'last-buffer']     ,
       \ 'n' : ['bnext'     , 'next-buffer']     ,
       \ 'p' : ['bprevious' , 'previous-buffer'] ,
+      \ 'f' : ['bfirst'    , 'first-buffer']    ,
+      \ 'l' : ['blast'     , 'last-buffer']     ,
       \ '?' : ['Buffers'   , 'fzf-buffer']      ,
+      \ 'd' : ['bd'        , 'delete-buffer']   ,
+      \ 'h' : ['Startify'  , 'home-buffer']     ,
       \ }
 
 let g:which_key_map.l = {
