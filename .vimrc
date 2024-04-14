@@ -4,7 +4,9 @@ call plug#begin()
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'scrooloose/NERDTree' " File Explorer 
     Plug 'jiangmiao/auto-pairs' " Auto pairs for '(' '[' '{'
+    Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline' " Status bar
+    Plug 'vim-airline/vim-airline-themes'
     Plug 'terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
@@ -32,6 +34,9 @@ nnoremap <C-a> :NERDTreeToggle<CR>
 " vim-airline ------------------------------------------------------------ {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#branch#enabled=1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='wombat'
 " }}}
 
 " load which-key settings, mappings ...
