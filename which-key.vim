@@ -64,6 +64,7 @@ let g:which_key_map.o = {
 " Ref issue #126, #133 etc.
 let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
+      \ 'g' : [':!lazygit' , 'lazygit']         ,
       \ '1' : ['b1'        , 'buffer 1']        ,
       \ '2' : ['b2'        , 'buffer 2']        ,
       \ '3' : ['b3'        , 'buffer 3']        ,
