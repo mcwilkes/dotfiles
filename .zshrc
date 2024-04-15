@@ -149,7 +149,8 @@ PROMPT='[%B%F{cyan}%3~%f]
 alias cls="clear"
 alias gh="cd ~"
 alias gb="cd /usr/bin"
-alias gdf"cd ~/Downloads/dotfiles"
+alias gdf="cd ~/Downloads/dotfiles"
+alias gpom="git pull origin main"
 alias src="source ~/.zshrc"
 alias ghx="history | grep"
 alias grep="grep --color"
@@ -161,12 +162,14 @@ alias ll="colorls -lA --sd"
 # alias ls="lsd -A --group-directories-first"
 # alias ll="lsd -lA --group-directories-first"
 alias sdn="shutdown now"
+alias x="exit" # terminal
 alias nf="neofetch"
 alias lg="lazygit"
 alias rgr="ranger"
 alias ce="code"
 alias se="subl"
-alias e="vim"
+alias v="vim"
+alias e="nvim"
 alias ev='nvim $(find . -type f | fzf --multi --preview "bat --color=always {}")'
 alias ef='e $(find . -type f | fzf -m)'
 alias b='batcat'
