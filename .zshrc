@@ -6,6 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # use vim keybindings
+export EDITOR=$(which nvim)
 bindkey -v
 
 # Basic auto/tab complete:
@@ -140,11 +141,6 @@ PROMPT='[%B%F{cyan}%3~%f]
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder
-# For a full list of active aliases, run `alias`.
-#
 # My Aliases
 alias cls="clear"
 alias gh="cd ~"
@@ -160,7 +156,7 @@ alias ga="cat ~/.zshrc | grep alias"
 alias ls="colorls -A --sd"
 alias ll="colorls -lA --sd"
 # alias ls="lsd -A --group-directories-first"
-# alias ll="lsd -lA --group-directories-first"
+ # alias ll="lsd -lA --group-directories-first"
 alias sdn="shutdown now"
 alias x="exit" # terminal
 alias nf="neofetch"
@@ -177,7 +173,6 @@ alias erc="e ~/.zshrc"
 alias ep="e ~/.config/nvim/vim-plug/plugins.vim"
 alias evi="e ~/.config/nvim/init.vim"
 alias encf="e ~/.config/nvim ."
-alias cda="conda deactivate"
 alias gd="cd ~/dev/work && lsc"
 alias tl="tldr"
 alias tlf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
@@ -198,11 +193,7 @@ alias nar="sudo nala autoremove"
 # alias ud="sudo dnf upgrade"
 # alias pi="sudo dnf install"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh. 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh                     
-
 # so that lf will exit where you navigated to
-
 lfcd () {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
@@ -216,6 +207,7 @@ lfcd () {
         fi
     fi
 }
+bindkey -s '^o' 'lfcd\n'
 
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
@@ -231,7 +223,6 @@ fe() {
       --preview-window=right,60%))
   [[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
 }
-bindkey -s '^o' 'lfcd\n'
 
 # fcd - cd to selected directory
 fcd() {
@@ -240,4 +231,38 @@ fcd() {
                   -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
 }
+
+# --- fzf theme ---
+fg="#CBE0F0"
+bg="#011628"
+bg_highlight="#143652"
+purple="#B388FF"
+blue="#06BCE4"
+cyan="#2CF9ED"
+export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
+
+# --- fzf command defaults ---
+export FZF_DEFAULT_COMMAND='fd . --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd . --type=d --hidden --strip-cwd-prefix --exclude .git'
+
+# Use fd (https://github.com/sharkdp/fd) for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  fd --hidden --exclude .git . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type=d --hidden --exclude .git . "$1"
+}
+
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh. 
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh                     
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(zoxide init zsh)"
