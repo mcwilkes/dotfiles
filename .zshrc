@@ -1,3 +1,4 @@
+# Powerlevel10k INITIAL setup (more at end) ###################################
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -5,22 +6,44 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Basic config items ##########################################################
 # use vim keybindings
 export EDITOR=$(which nvim)
 bindkey -v
 
-# Basic auto/tab complete:
+plugins=(   git 
+            vi-mode 
+            themes 
+            history-substring-search)
+
+# source $ZSH/oh-my-zsh.sh
+source $(dirname $(gem which colorls))/tab_complete.sh
+
+# User configuration ##########################################################
+PROMPT='[%B%F{blue}%3~%f] ${vcs_info_msg_0_}
+%F{magenta}%  >>%f %F{yellow}%>>'
+
+# source MCWs plugins #########################################################
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /Users/mcwilkes/.oh-my-zsh/plugins/history-substring-search/history-substring-search.zsh
+source /Users/mcwilkes/.config/lf/lficons.conf 2>/dev/null
+
+# map up/down arrow keys for history search ###################################
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# Basic auto/tab complete: ####################################################
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
-# Edit line in vim with ctrl-e:
+# Edit line in vim with ctrl-e: ###############################################
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-# Change cursor shape for different vi modes.
+# Change cursor shape for different vi modes. #################################
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
      [[ $1 = 'block' ]]; then
@@ -41,11 +64,12 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
+################# HIDE a bunch of zsh (mostly comments) #######################
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="/Users/mcwilkes/.oh-my-zsh"
 
 export LSCOLORS="ExFxBxDxegedabagacad"
 
@@ -115,16 +139,20 @@ zstyle ':omz:update' frequency 3
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(   git
-            vi-mode
-            themes
-            history-substring-search)
 
-# User configuration
-PROMPT='[%B%F{cyan}%3~%f] 
-%F{magenta}% >>%f %F{yellow}% '
+# VCS setup ###################################################################
+# Load version control information
+autoload -Uz vcs_info
+precmd() { vcs_info }
 
-# User configuration
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:git:*' formats 'on %b'
+setopt PROMPT_SUBST
+
+################# HIDE a bunch of zsh (mostly comments) #######################
+#autoload -U colors && colors
+#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%} @ %{$fg[blue]%}Air %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%} $%b "
+#PROMPT='[%F{blue}%~%f] %F{magenta}% >>%f %F{yellow}% '
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -135,63 +163,88 @@ PROMPT='[%B%F{cyan}%3~%f]
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# My Aliases
+# My ALIASES ------------------------
 alias cls="clear"
 alias gh="cd ~"
 alias gb="cd /usr/bin"
 alias gdf="cd ~/Downloads/dotfiles"
+# alias gdp="cd ~/dev/python && ls"
 alias gpom="git pull origin main"
 alias src="source ~/.zshrc"
 alias ghx="history | grep"
 alias grep="grep --color"
-alias fd="fdfind"
 alias dg="ll | grep"
-alias ga="cat ~/.zshrc | grep alias"
-alias ls="colorls -A --sd"
-alias ll="colorls -lA --sd"
-# alias ls="lsd -A --group-directories-first"
- # alias ll="lsd -lA --group-directories-first"
-alias sdn="shutdown now"
-alias x="exit" # terminal
-alias nf="neofetch"
-alias lg="lazygit"
+alias ga="grep ^alias ~/.zshrc"
+alias b="bat"
+# alias b='batcat'
+alias ls="lsd -A --group-directories-first"
+alias ll="lsd -lA --group-directories-first"
+# alias ls="colorls -A --sd"
+# alias ll="colorls -lA --sd"
+alias fd="fdfind"
+alias t2="tree -L 2 -adC"
+alias tg="t2 | grep --before-context=2"
 alias rgr="ranger"
+alias lg="lazygit"
+alias nf="neofetch"
+alias sdn="shutdown now"
 alias ce="code"
 alias se="subl"
-alias v="vim"
 alias e="nvim"
-alias ev='nvim $(find . -type f | fzf --multi --preview "bat --color=always {}")'
+alias v="vim"
+alias x="exit"
+alias tl="tldr"
+alias tlf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
+# alias fly="mcfly search"
+alias fu="ncdu"
+alias pd="pushd"
+alias d='dirs -v'
+# alias ev='vim $(find . -type f | fzf --multi --preview "bat --color=always {}" --preview-window "~3")'
+alias ev='vim $(find . -type f | fzf --multi --preview "bat --color=always {}")'
+alias ex='./exp.sh'
+alias efe='sh ~/efe.sh'
+alias erc="e ~/.zshrc"
+alias edf="vim -S ~/dotfiles.vim"
+alias eil="e ~/.config/nvim/lua/user/init.lua"
+alias enu="e ~/.config/nvim/lua/user ."
 alias ef='e $(find . -type f | fzf -m)'
-alias b='batcat'
 alias erc="e ~/.zshrc"
 alias ep="e ~/.config/nvim/vim-plug/plugins.vim"
 alias evi="e ~/.config/nvim/init.vim"
 alias encf="e ~/.config/nvim ."
-alias gd="cd ~/dev/work && lsc"
-alias tl="tldr"
-alias tlf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
-alias d='dirs -v'
-alias pd='pushd'
-alias fly="mcfly search"
 
-# These are for ubuntu-based distros ...
+# for MacOs ...
+# alias cda="conda deactivate"
+# alias cac="conda activate py3.12.3"
+# alias ci="conda install"
+# alias dc="conda deactivate"
+# alias ud="brew update && brew upgrade"
+
+# for ubuntu-based distros ...
 alias ud="sudo nala upgrade && sudo flatpak -y update"
 alias pi="sudo nala install"
 alias nar="sudo nala autoremove"
 
-# These are for arch-based distros ...
+# for arch-based distros ...
 # alias ud="sudo pacman -Syu"
 # alias pi="sudo pacman -S"
 
 # for fedora ...
 # alias ud="sudo dnf upgrade"
 # alias pi="sudo dnf install"
+
+# My utility functions ########################################################
+# who is listening on a port?
+whoport () {
+  num=${1:-$PORT}
+  lsof -i -P | grep LISTEN | grep --color :$num
+}
 
 # so that lf will exit where you navigated to
 lfcd () {
@@ -224,15 +277,7 @@ fe() {
   [[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
 }
 
-# fcd - cd to selected directory
-fcd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
-
-# --- fzf theme ---
+# --- fzf setup --- ###########################################################
 fg="#CBE0F0"
 bg="#011628"
 bg_highlight="#143652"
@@ -258,11 +303,41 @@ _fzf_compgen_dir() {
   fd --type=d --hidden --exclude .git . "$1"
 }
 
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh. 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh                     
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Powerlevel10k FINAL setup ###################################################
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 eval "$(zoxide init zsh)"
+alias fd="fdfind"
+alias ls="colorls -A --sd"
+alias ll="colorls -lA --sd"
+# alias ls="lsd -A --group-directories-first"
+# alias ll="lsd -lA --group-directories-first"
+alias sdn="shutdown now"
+alias ef='e $(find . -type f | fzf -m)'
+# alias b='batcat'
+alias erc="e ~/.zshrc"
+alias ep="e ~/.config/nvim/vim-plug/plugins.vim"
+alias evi="e ~/.config/nvim/init.vim"
+alias encf="e ~/.config/nvim ."
+alias gd="cd ~/dev/work && lsc"
+alias tl="tldr"
+alias tlf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
+alias d='dirs -v'
+alias pd='pushd'
+
+# These are for ubuntu-based distros ...
+alias ud="sudo nala upgrade && sudo flatpak -y update"
+alias pi="sudo nala install"
+alias nar="sudo nala autoremove"
+
+# These are for arch-based distros ...
+# alias ud="sudo pacman -Syu"
+# alias pi="sudo pacman -S"
+
+# for fedora ...
+# alias ud="sudo dnf upgrade"
+# alias pi="sudo dnf install"
