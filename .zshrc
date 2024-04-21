@@ -11,6 +11,9 @@ fi
 export EDITOR=$(which nvim)
 bindkey -v
 
+# Path to your oh-my-zsh installation.
+# export ZSH="/Users/mcwilkes/.oh-my-zsh"
+
 plugins=(   git 
             vi-mode 
             themes 
@@ -24,13 +27,13 @@ PROMPT='[%B%F{blue}%3~%f] ${vcs_info_msg_0_}
 %F{magenta}%  >>%f %F{yellow}%>>'
 
 # source MCWs plugins #########################################################
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source /Users/mcwilkes/.oh-my-zsh/plugins/history-substring-search/history-substring-search.zsh
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+# source /Users/mcwilkes/.oh-my-zsh/plugins/history-substring-search/history-substring-search.zsh
 source /Users/mcwilkes/.config/lf/lficons.conf 2>/dev/null
 
 # map up/down arrow keys for history search ###################################
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
 
 # Basic auto/tab complete: ####################################################
 autoload -U compinit
@@ -67,9 +70,6 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 ################# HIDE a bunch of zsh (mostly comments) #######################
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/mcwilkes/.oh-my-zsh"
 
 export LSCOLORS="ExFxBxDxegedabagacad"
 
@@ -183,8 +183,8 @@ alias dg="ll | grep"
 alias ga="grep ^alias ~/.zshrc"
 alias b="bat"
 # alias b='batcat'
-alias ls="lsd -A --group-directories-first"
-alias ll="lsd -lA --group-directories-first"
+alias ls="lsd -A --group-dirs"
+alias ll="lsd -lA --group-dirs"
 # alias ls="colorls -A --sd"
 # alias ll="colorls -lA --sd"
 alias fd="fdfind"
