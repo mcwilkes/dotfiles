@@ -311,33 +311,3 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval "$(zoxide init zsh)"
-alias fd="fdfind"
-alias ls="colorls -A --sd"
-alias ll="colorls -lA --sd"
-# alias ls="lsd -A --group-directories-first"
-# alias ll="lsd -lA --group-directories-first"
-alias sdn="shutdown now"
-alias ef='e $(find . -type f | fzf -m)'
-# alias b='batcat'
-alias erc="e ~/.zshrc"
-alias ep="e ~/.config/nvim/vim-plug/plugins.vim"
-alias evi="e ~/.config/nvim/init.vim"
-alias encf="e ~/.config/nvim ."
-alias gd="cd ~/dev/work && lsc"
-alias tl="tldr"
-alias tlf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
-alias d='dirs -v'
-alias pd='pushd'
-
-# These are for ubuntu-based distros ...
-alias ud="sudo nala upgrade && sudo flatpak -y update"
-alias pi="sudo nala install"
-alias nar="sudo nala autoremove"
-
-# These are for arch-based distros ...
-# alias ud="sudo pacman -Syu"
-# alias pi="sudo pacman -S"
-
-# for fedora ...
-# alias ud="sudo dnf upgrade"
-# alias pi="sudo dnf install"
