@@ -2,13 +2,16 @@
 
 ! ## Enable a color supported XTerm ##
 XTerm.termName: xterm-256color
+XTerm*locale: true
+XTerm*utf8: 1
 
 ! ## Set xterm window size ##
-XTerm*VT100.geometry: 100x45
+XTerm*VT100.geometry: 110x40
 
 ! ## Set font and fontsize ##
-XTerm*faceName: DejaVu Sans Mono Regular
-XTerm*faceSize: 12
+! XTerm*faceName: DejaVu Sans Mono Regular
+XTerm*faceName: MesloLGF NF            
+XTerm*faceSize: 14
 
 ! VT Font Menu: Unreadable
 XTerm*faceSize1: 8
