@@ -61,7 +61,7 @@ XTerm*background: #272727
 XTerm*foreground: #478C72
 
 ! original #86a2b0
-XTerm*colorUL: #ef
+XTerm*colorUL: #eff0eb
 XTerm*underlineColor: #eff0eb
 
 ! ! black
