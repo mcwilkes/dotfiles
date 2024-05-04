@@ -55,7 +55,7 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 set nobackup
-set scrolloff=10
+set scrolloff=2
 set updatetime=100
 set scl=auto
 set nowrap
