@@ -1,17 +1,17 @@
 " PLUGINS ---------------------------------------------------------------- {{{
 call plug#begin()
     Plug 'sheerun/vim-polyglot' " Better Syntax Support
-	  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'scrooloose/NERDTree' " File Explorer 
     Plug 'jiangmiao/auto-pairs' " Auto pairs for '(' '[' '{'
     Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline' " Status bar
     Plug 'vim-airline/vim-airline-themes'
     Plug 'terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
-	  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	  Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
     Plug 'ap/vim-css-color' " CSS Color Preview
-	  Plug 'ryanoasis/vim-devicons' " Developer Icons
+    Plug 'ryanoasis/vim-devicons' " Developer Icons
     Plug 'mattn/emmet-vim'
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-commentary'
