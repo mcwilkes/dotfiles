@@ -2,12 +2,12 @@
 
 ## My Linux distro dotfiles for
 
-* zsh
-* vimrc
-* tmux
-* ranger
-* xterm
-* alacritty
+* .zshrc
+* .vimrc
+* .tmux.conf
+* ranger/rc.conf
+* xterm .Xresources
+* alacritty.toml
 * vim-which-key configs
 * habamax vim colorscheme
 
