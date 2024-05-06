@@ -2,14 +2,17 @@
 
 ## My Linux distro dotfiles for
 
-* .zshrc
-* .vimrc
-* .tmux.conf
-* ranger/rc.conf
-* xterm .Xresources
-* alacritty.toml
-* vim-which-key configs
-* habamax vim colorscheme
+* ~/.zshrc
+* ~/.vimrc
+* ~/.tmux.conf
+* * ~/.Xresources xterm config
+
+* ~/.config/ranger/rc.conf
+
+* ~/.config/alacritty/alacritty.toml
+
+* ~/.vim/custom/which-key.vim
+* ~/.vim/colors/habamax.vim colorscheme
 
 ## Sample Copy Block
 
