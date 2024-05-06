@@ -5,7 +5,7 @@
 * ~/.zshrc
 * ~/.vimrc
 * ~/.tmux.conf
-* * ~/.Xresources xterm config
+* ~/.Xresources xterm config
 
 * ~/.config/ranger/rc.conf
 
