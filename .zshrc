@@ -45,17 +45,10 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # My ALIASES ##################################################################
 alias cls="clear"
-alias ver="python3 ~/ver.py"
-alias tf='touch'
-alias md="mkdir"
-alias jnb="jupyter notebook"
-alias jlb="jupyter lab"
 alias gh="cd ~"
 alias gb="cd /usr/bin"
 alias gdf="cd ~/Downloads/dotfiles"
-alias gnv="cd ~/.config/nvim/lua/user/plugins"
-alias gdp="cd ~/dev/python && ls"
-alias gdg="cd ~/dev/go/src/github.com && ls"
+# alias gdp="cd ~/dev/python && ls"
 alias gpom="git pull origin main"
 alias src="source ~/.zshrc"
 alias srcx="xrdb ~/.Xresources"
@@ -77,9 +70,6 @@ alias lg="lazygit"
 alias nf="neofetch"
 alias sdn="shutdown now"
 alias ce="code"
-alias mr="python3 ~/mr.py"
-alias gr="go run"
-alias gp="python3"
 alias se="subl"
 alias e="nvim"
 alias v="vim"
@@ -105,14 +95,15 @@ alias evi="e ~/.config/nvim/init.vim"
 alias encf="e ~/.config/nvim ."
 
 # for MacOs ...
-alias cda="conda deactivate"
-alias cac="conda activate"
-alias ci="conda install"
-alias ud="brew update && brew upgrade"
+# alias cda="conda deactivate"
+# alias cac="conda activate py3.12.3"
+# alias ci="conda install"
+# alias dc="conda deactivate"
+# alias ud="brew update && brew upgrade"
 
 # for ubuntu-based distros ...
-# alias ud="sudo nala upgrade && sudo flatpak -y update"
-# alias pi="sudo nala install"
+alias ud="sudo nala upgrade && sudo flatpak -y update"
+alias pi="sudo nala install"
 alias nar="sudo nala autoremove"
 
 # for arch-based distros ...
@@ -189,31 +180,9 @@ _fzf_compgen_dir() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# for rust tools
- export PATH="~/.cargo/bin:$PATH"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/local/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 # Powerlevel10k FINAL setup ###################################################
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$(brew --prefix nvm)/nvm.sh" ] && \. "$(brew --prefix nvm)/nvm.sh"
-[ -s "$(brew --prefix nvm)/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
 
 eval "$(zoxide init zsh)"
