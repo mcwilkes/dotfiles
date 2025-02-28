@@ -111,8 +111,8 @@ alias nar="sudo nala autoremove"
 # alias pi="sudo pacman -S"
 
 # for fedora ...
-# alias ud="sudo dnf upgrade"
-# alias pi="sudo dnf install"
+# alias ud="sudo dnf -y upgrade"
+# alias pi="sudo dnf -y install"
 
 # My utility functions ########################################################
 # who is listening on a port?
