@@ -46,7 +46,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # My ALIASES ##################################################################
 alias cls="clear"
 alias ver="python3 ~/ver.py"
-alias tf='touch'
+alias th='touch'
 alias md="mkdir"
 alias jnb="jupyter notebook"
 alias jlb="jupyter lab"
@@ -120,8 +120,8 @@ alias nar="sudo nala autoremove"
 # alias pi="sudo pacman -S"
 
 # for fedora ...
-# alias ud="sudo dnf -y upgrade"
-# alias pi="sudo dnf -y install"
+# alias ud="sudo dnf upgrade"
+# alias pi="sudo dnf install"
 
 # My utility functions ########################################################
 # who is listening on a port?
