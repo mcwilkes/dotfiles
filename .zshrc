@@ -45,6 +45,14 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # My ALIASES ##################################################################
 alias cls="clear"
+alias gp="python3"
+alias ver="python3 ~/ver.py"
+alias mr="python3 ~/mr.py"
+alias gr="go run"
+alias th='touch'
+alias md="mkdir"
+alias jnb="jupyter notebook"
+alias jlb="jupyter lab"
 alias gh="cd ~"
 alias gb="cd /usr/bin"
 alias gdf="cd ~/Downloads/dotfiles"
