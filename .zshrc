@@ -44,19 +44,34 @@ echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # My ALIASES ##################################################################
+alias .1="cd .."
+alias .2="cd ../.."
+alias .3="cd ../../.."
+alias .4="cd ../../../.."
+alias .5="cd ../../../../.."
 alias cls="clear"
 alias gp="python3"
 alias ver="python3 ~/ver.py"
 alias mr="python3 ~/mr.py"
 alias gr="go run"
 alias th='touch'
-alias md="mkdir"
+alias md="mkdir -pv"                       # create needed parent folders, verify
+alias mp="echo -e ${PATH//:/\\n} | less"   # show path, one entry per line
+alias genv="printenv | grep -i"            # grep ENV variables for string ...
 alias jnb="jupyter notebook"
 alias jlb="jupyter lab"
 alias gh="cd ~"
 alias gb="cd /usr/bin"
+alias tml="tmuxifier load-session"
+alias tme="tmuxifier edit-session"
 alias gdf="cd ~/Downloads/dotfiles"
 # alias gdp="cd ~/dev/python && ls"
+alias gs="git status"            # local repo status
+alias gad="git add"               # stage specific file 
+alias gal="git add -u"           # stage only modified and deleted files
+alias gall="git add -A"          # stage ALL files
+alias gl="git log"               # view detailed log
+alias gll="git log --oneline"    # view summary, one line per commit
 alias gpom="git pull origin main"
 alias src="source ~/.zshrc"
 alias srcx="xrdb ~/.Xresources"
@@ -74,10 +89,14 @@ alias fd="fdfind"
 alias t2="tree -L 2 -adC"
 alias tg="t2 | grep --before-context=2"
 alias rgr="ranger"
+alias y="yazi"
 alias lg="lazygit"
 alias nf="neofetch"
 alias sdn="shutdown now"
 alias ce="code"
+alias mr="python3 ~/mr.py"
+alias gr="go run"
+alias gp="python3"
 alias se="subl"
 alias e="nvim"
 alias v="vim"
@@ -86,6 +105,8 @@ alias tl="tldr"
 alias tlf='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'
 # alias fly="mcfly search"
 alias fu="ncdu"
+alias df="df -h"                    # show disk usage in human readable format
+alias dusage="du -sh * 2>/dev/null" # summarize disk usage for each file in folder
 alias pd="pushd"
 alias d='dirs -v'
 # alias ev='vim $(find . -type f | fzf --multi --preview "bat --color=always {}" --preview-window "~3")'
@@ -110,7 +131,7 @@ alias encf="e ~/.config/nvim ."
 # alias ud="brew update && brew upgrade"
 
 # for ubuntu-based distros ...
-alias ud="sudo nala upgrade && sudo flatpak -y update"
+alias ud="sudo nala upgrade -y && sudo flatpak -y update"
 alias pi="sudo nala install"
 alias nar="sudo nala autoremove"
 
