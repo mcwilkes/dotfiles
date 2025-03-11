@@ -42,15 +42,21 @@ end
 
 -- Appearance
 config.font_size = 18.0
+
+config.initial_rows = 45
+config.initial_cols = 120
+
+config.adjust_window_size_when_changing_font_size = false
 config.color_scheme = color_scheme_for_appearance(wezterm.gui.get_appearance())
 config.window_background_opacity = window_background_opacity
 -- config.macos_window_background_blur = 10
 config.window_decorations = "RESIZE"
-config.hide_tab_bar_if_only_one_tab = true
+-- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.native_macos_fullscreen_mode = false
+
+config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = true
-config.initial_rows = 45
-config.initial_cols = 120
+config.show_new_tab_button_in_tab_bar = true
 
 -- options
 config.window_close_confirmation = "NeverPrompt"
