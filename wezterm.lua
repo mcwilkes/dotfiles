@@ -41,7 +41,7 @@ if wezterm.config_builder then
 end
 
 -- Appearance
-config.font_size = 16.0
+config.font_size = 18.0
 config.color_scheme = color_scheme_for_appearance(wezterm.gui.get_appearance())
 config.window_background_opacity = window_background_opacity
 -- config.macos_window_background_blur = 10
@@ -51,6 +51,9 @@ config.native_macos_fullscreen_mode = false
 config.use_fancy_tab_bar = true
 config.initial_rows = 45
 config.initial_cols = 120
+
+-- options
+config.window_close_confirmation = "NeverPrompt"
 
 -- Keybindings
 config.keys = {
