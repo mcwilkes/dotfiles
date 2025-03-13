@@ -5,6 +5,7 @@ $os \
 $directory \
 $git_branch \
 $git_status \
+$fill \
 $c \
 $rust \
 $golang \
@@ -12,6 +13,7 @@ $nodejs \
 $java \
 $python \
 $conda \
+$cmd_duration\
 $time \
 $line_break$character"""
 
@@ -76,23 +78,35 @@ staged = '[++\\($count\\)](green)'
 renamed = '👅 ${count}'
 deleted = '🗑 ${count}'
 
+[fill]
+symbol = ' '
+
 [nodejs]
 symbol = "  "
+style = 'blue'
 
 [c]
 symbol = "  "
+style = 'blue'
 
 [rust]
 symbol = " "
+style = 'blue'
 
 [golang]
 symbol = " "
+style = 'blue'
 
 [java]
 symbol = " "
+style = 'blue'
 
 [python]
-symbol = " "
+style = 'yellow'
+symbol = ' '
+pyenv_prefix = ''
+# pyenv_version_name = true
+format = '[${symbol}${pyenv_prefix}(${version})(\($virtualenv\) )]($style)'
 
 [conda]
 
@@ -100,6 +114,11 @@ symbol = " "
 # disabled = false
 # use_12hr = true
 # time_format = "%R"
+
+[cmd_duration]
+min_time = 500
+style = 'fg:gray'
+format = '[$duration]($style)'
 
 [line_break]
 disabled = false
