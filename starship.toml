@@ -44,7 +44,6 @@ Pop = ""
 
 
 [directory]
-# format = "[ $path ]"
 truncation_length = 0 
 truncate_to_repo = false
 truncation_symbol = "…/"
@@ -62,11 +61,9 @@ format = "$all"
 style = "bold red"
 
 [git_branch]
-# format = '[ $symbol$branch(:$remote_branch)]'
 symbol = "  "
 
 [git_status]
-# format = '[$all_status]($style)'
 conflicted = '🏳 ${count}'
 ahead = '🏎💨 ${count}'
 behind = '😰 ${count}'
@@ -74,7 +71,7 @@ diverged = '😵 ${count}'
 up_to_date = '✓'
 untracked = '🤷 ${count}'
 stashed = '📦 ${count}'
-modified = '📝'
+modified = '📝 ${count}'
 staged = '[++\\($count\\)](green)'
 renamed = '👅 ${count}'
 deleted = '🗑 ${count}'
@@ -103,16 +100,15 @@ symbol = " "
 # disabled = false
 # use_12hr = true
 # time_format = "%R"
-# format = '[  $time ]'
 
 [line_break]
 disabled = false
 
 # [character]
 # disabled = false
-# success_symbol = '[]'
-# error_symbol = '[]'
-# vimcmd_symbol = '[]'
-# vimcmd_replace_one_symbol = '[]'
-# vimcmd_replace_symbol = '[]'
-# vimcmd_visual_symbol = '[]'
+# success_symbol = ''
+# error_symbol = ''
+# vimcmd_symbol = ''
+# vimcmd_replace_one_symbol = ''
+# vimcmd_replace_symbol = ''
+# vimcmd_visual_symbol = ''
