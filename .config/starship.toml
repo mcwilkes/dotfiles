@@ -7,7 +7,9 @@ $git_branch \
 $git_status \
 $fill \
 $c \
+$lua \
 $rust \
+$ruby \
 $golang \
 $nodejs \
 $java \
@@ -82,23 +84,33 @@ deleted = '🗑 ${count}'
 symbol = ' '
 
 [nodejs]
-symbol = " "
-style = 'blue'
+symbol = " "
+style = 'cyan'
 format = '[$symbol($version )]($style)'
 
 [c]
 symbol = " "
+style = 'white'
+format = '[$symbol($version )]($style)'
+
+[lua]
+symbol = " "
 style = 'blue'
 format = '[$symbol($version )]($style)'
 
 [rust]
 symbol = " "
-style = 'blue'
+style = 'purple'
+format = '[$symbol($version )]($style)'
+
+[ruby]
+symbol = " "
+style = 'red'
 format = '[$symbol($version )]($style)'
 
 [golang]
 symbol = " "
-style = 'blue'
+style = 'green'
 format = '[$symbol($version )]($style)'
 
 [java]
