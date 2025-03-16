@@ -22,8 +22,6 @@ if len(sys.argv) > 1:
             os.system("node --version")
         case "npm":
             os.system("npm --version")
-        case "nvim":
-            os.system("nvim --version")
         case "vim":
             os.system("vim --V")
         case "ed":
@@ -38,6 +36,7 @@ if len(sys.argv) > 1:
             print("------------------")
             print("npm:")
             os.system("npm --version")
+            print("------------------")
         case "lang":
             print("------------------")
             os.system("python3 --version")
@@ -51,7 +50,16 @@ if len(sys.argv) > 1:
             os.system("lua -v")
             print("------------------")
             os.system("ruby --version")
+            print("------------------")
+            print("node:")
+            os.system("node --version")
+            print("------------------")
+            print("npm:")
+            os.system("npm --version")
+            print("------------------")
         case _:
-            print("You passed something else. Try 'ed', 'js' or 'lang'.")
+            print(
+                "You passed something else. Try 'py', 'rust', (etc) or 'ed', 'js' or 'lang'."
+            )
 else:
     print("Nothing passed.")
