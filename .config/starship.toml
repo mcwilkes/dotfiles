@@ -13,8 +13,7 @@ $nodejs \
 $java \
 $python \
 $conda \
-$fill \
-$cmd_duration\
+$cmd_duration \
 $time \
 $line_break$character"""
 
@@ -83,24 +82,29 @@ deleted = '🗑 ${count}'
 symbol = ' '
 
 [nodejs]
-symbol = "  "
+symbol = " "
 style = 'blue'
+format = '[$symbol($version )]($style)'
 
 [c]
-symbol = "  "
+symbol = " "
 style = 'blue'
+format = '[$symbol($version )]($style)'
 
 [rust]
 symbol = " "
 style = 'blue'
+format = '[$symbol($version )]($style)'
 
 [golang]
 symbol = " "
 style = 'blue'
+format = '[$symbol($version )]($style)'
 
 [java]
 symbol = " "
 style = 'blue'
+format = '[$symbol($version )]($style)'
 
 [python]
 style = 'yellow'
@@ -111,10 +115,11 @@ format = '[${symbol}${pyenv_prefix}(${version})(\($virtualenv\) )]($style)'
 
 [conda]
 
-# [time]
-# disabled = false
-# use_12hr = true
-# time_format = "%R"
+[time]
+disabled = false
+use_12hr = true
+time_format = "%I:%M%P"
+format = ' [$time]($style)'
 
 [cmd_duration]
 min_time = 500
