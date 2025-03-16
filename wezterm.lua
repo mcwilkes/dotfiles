@@ -30,7 +30,7 @@ local function color_scheme_for_appearance(appearance)
 	if appearance:find("Dark") then
 		return "Tokyo Night"
 	else
-		return "Tokyo Night Day"
+		return "Tokyo Night"
 	end
 end
 
@@ -41,10 +41,10 @@ if wezterm.config_builder then
 end
 
 -- Appearance
-config.font_size = 18.0
+config.font_size = 14.0
 
-config.initial_rows = 45
-config.initial_cols = 120
+config.initial_rows = 40
+config.initial_cols = 100
 
 config.adjust_window_size_when_changing_font_size = false
 config.color_scheme = color_scheme_for_appearance(wezterm.gui.get_appearance())

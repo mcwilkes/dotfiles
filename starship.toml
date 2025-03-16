@@ -13,6 +13,7 @@ $nodejs \
 $java \
 $python \
 $conda \
+$fill \
 $cmd_duration\
 $time \
 $line_break$character"""
