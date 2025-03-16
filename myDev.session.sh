@@ -1,6 +1,6 @@
 # Set a custom session root path. Default is `$HOME`.
 # Must be called before `initialize_session`.
-session_root "~/dev" # ~/dev folder
+session_root "~/Downloads/dotfiles" # ~/dev folder
 
 # Create session with specified name if it does not already exist. If no
 # argument is given, session name will be based on layout file name.
@@ -14,7 +14,7 @@ if initialize_session "myDev"; then
   split_v 20
   run_cmd "ls" # ls the ~/dev foldery 
   select_pane 0
-  run_cmd "rgr"  # open ranger file explorer on ~/dev folder
+  run_cmd "yazi"  # open yazi file explorer on ~/dev folder
   split_h 60
   run_cmd "btop"
   # run_cmd "z dot" # cd to /Downloads/dotfiles
