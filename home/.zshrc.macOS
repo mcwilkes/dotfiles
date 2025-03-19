@@ -8,6 +8,9 @@ fi
 export EDITOR=$(which nvim)
 bindkey -v
 
+# set this so ghostty finds config file
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
