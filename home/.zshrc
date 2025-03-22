@@ -130,8 +130,8 @@ alias grep="grep --color"
 alias dg="ll | grep"
 alias ga="grep ^alias ~/.zshrc"
 alias gag="grep ^alias ~/.zshrc | grep -i"
-# alias b="bat"
-alias b='batcat'
+alias b="bat"
+# alias b='batcat'
 alias ls="lsd -A --group-dirs first"
 alias ll="lsd -lA --group-dirs first"
 # alias ls="colorls -A --sd"
@@ -180,13 +180,13 @@ alias encf="e ~/.config/nvim ."
 # alias ud="brew update && brew upgrade"
 
 # for ubuntu-based distros ...
-alias ud="sudo nala upgrade && sudo flatpak -y update"
-alias pi="sudo nala install"
-alias nar="sudo nala autoremove"
+# alias ud="sudo nala upgrade && sudo flatpak -y update"
+# alias pi="sudo nala install"
+# alias nar="sudo nala autoremove"
 
 # for arch-based distros ...
-# alias ud="sudo pacman -Syu"
-# alias pi="sudo pacman -S"
+alias ud="sudo pacman -Syu"
+alias pi="sudo pacman -S"
 
 # for fedora ...
 # alias ud="sudo dnf -y upgrade"
@@ -256,7 +256,7 @@ _fzf_compgen_dir() {
   fd --type=d --hidden --exclude .git . "$1"
 }
 
-unalias zi                  # hack due to zinit alias v function conflict
+# unalias zi                  # hack due to zinit alias v function conflict
 
 # Shell integrations
 # eval "$(fzf --zsh)"
