@@ -50,8 +50,8 @@ config.adjust_window_size_when_changing_font_size = false
 config.color_scheme = color_scheme_for_appearance(wezterm.gui.get_appearance())
 config.window_background_opacity = window_background_opacity
 -- config.macos_window_background_blur = 10
--- config.window_decorations = "TITLE | RESIZE" -- for gnome if can't drag window
-config.window_decorations = "RESIZE"
+config.window_decorations = "TITLE | RESIZE" -- for gnome if can't drag window
+-- config.window_decorations = "RESIZE"
 -- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.native_macos_fullscreen_mode = false
 
