@@ -2,7 +2,7 @@
 local wezterm = require("wezterm")
 
 -- Utility functions
-local window_background_opacity = 0.75
+local window_background_opacity = 0.60
 local function toggle_window_background_opacity(window)
 	local overrides = window:get_config_overrides() or {}
 	if not overrides.window_background_opacity then
@@ -41,7 +41,7 @@ if wezterm.config_builder then
 end
 
 -- Appearance
-config.font_size = 14.0
+config.font_size = 16.0
 
 config.initial_rows = 38
 config.initial_cols = 100
