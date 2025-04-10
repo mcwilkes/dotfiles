@@ -180,17 +180,17 @@ alias encf="e ~/.config/nvim ."
 # alias ud="brew update && brew upgrade"
 
 # for ubuntu-based distros ...
-# alias ud="sudo nala upgrade && sudo flatpak -y update"
-# alias pi="sudo nala install"
-# alias nar="sudo nala autoremove"
+# alias ud="sudo nala -y upgrade && sudo flatpak -y update"
+# alias pi="sudo nala -y install"
+# alias nar="sudo nala -y autoremove"
 
 # for arch-based distros ...
-alias ud="sudo pacman -Syu"
-alias pi="sudo pacman -S"
+alias ud="sudo pacman -Syu --noconfirm"
+alias pi="sudo pacman -S --noconfirm"
 
 # for fedora ...
-# alias ud="sudo dnf -y upgrade"
-# alias pi="sudo dnf -y install"
+# alias ud="sudo dnf -y upgrade -y"
+# alias pi="sudo dnf -y install -y"
 
 # My utility functions ########################################################
 # who is listening on a port?
