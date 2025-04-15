@@ -43,7 +43,7 @@ end
 -- Appearance
 config.font_size = 16.0
 
-config.initial_rows = 38
+config.initial_rows = 35
 config.initial_cols = 100
 
 config.adjust_window_size_when_changing_font_size = false
