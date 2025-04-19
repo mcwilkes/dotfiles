@@ -1,0 +1,88 @@
+ls
+ps
+ps | shere status == Running
+ps | where status == Running
+ls | where size > 1kb
+exit
+config nu
+help config nu
+config nu --doc | nu-highlight
+cls
+clear
+config nu --doc | nu-highlight
+config nu
+exit
+ls
+exit
+config nu
+exit
+exit
+config nu
+exit
+t
+exit
+config nu
+exit
+cls
+x
+config nu
+exit
+cls
+clear
+aliases
+alias
+alias x
+clear
+config nu
+exit
+ll
+cls
+x
+scope aliases
+help aliases
+clear
+config nu
+exit
+ll
+config nu
+exit
+ll
+config nu
+exit
+ll
+config nu
+exit
+ll
+cls
+ll
+ls -ltA
+ls -lt
+cd .config
+ls -lt
+ls -ltA
+ls -lta
+cls
+ls -lta
+cd ..
+config nu
+z .config
+cd .config
+config nu
+rgr
+y
+z .config
+zoxide --help
+z init
+cls
+ll
+ll | where size > 1kb
+ll
+ll | where size > 1kb
+ll | where size > 3kb
+ll | where size > 5kb
+ll --help
+ll | where type ==dir
+ll | where type == dir
+ll | where type == file
+ll | where mode == rwxrwxr-x
+cls
