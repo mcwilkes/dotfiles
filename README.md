@@ -19,6 +19,7 @@
   - ~/.config/wezterm/wezterm.lua
   - ~/.config/ranger/rc.conf
   - ~/.config/alacritty/alacritty.toml
+  - ~/.config/nushell/
 
 ## Sample Copy Block
 
