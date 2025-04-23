@@ -14,7 +14,6 @@ $golang \
 $nodejs \
 $java \
 $python \
-$conda \
 $cmd_duration \
 $time \
 $line_break$character"""
