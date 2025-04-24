@@ -7,6 +7,9 @@ if len(sys.argv) > 1:
     # print(what)
     match what:
         case "py":
+            print("py:")
+            os.system("python --version")
+            print("py3:")
             os.system("python3 --version")
         case "rust":
             os.system("rustc --version")
@@ -39,6 +42,9 @@ if len(sys.argv) > 1:
             print("------------------")
         case "lang":
             print("------------------")
+            print("py:")
+            os.system("python --version")
+            print("py3:")
             os.system("python3 --version")
             print("------------------")
             os.system("rustc --version")
