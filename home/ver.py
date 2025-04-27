@@ -25,13 +25,15 @@ if len(sys.argv) > 1:
             os.system("node --version")
         case "npm":
             os.system("npm --version")
+        case "nvim":
+            os.system("nvim --version | head -n 3")
         case "vim":
-            os.system("vim --V")
+            os.system("vim --version | head -n 2")
         case "ed":
             print("------------------")
-            os.system("nvim --version")
+            os.system("nvim --version | head -n 3")
             print("------------------")
-            os.system("vim --V")
+            os.system("vim --version | head -n 2")
         case "js":
             print("------------------")
             print("node:")
