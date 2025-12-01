@@ -191,6 +191,7 @@ alias pi="sudo pacman -S"
 # for fedora ...
 # alias ud="sudo dnf -y upgrade"
 # alias pi="sudo dnf -y install"
+# alias upgrade="sudo dnf -y system-upgrade download --releasever=43 && sudo dnf -y system-upgrade reboot"
 
 # My utility functions ########################################################
 # who is listening on a port?
